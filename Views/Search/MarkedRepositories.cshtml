@@ -1,0 +1,18 @@
+﻿@{
+    @Scripts.Render("/js/controllers/MarkedRepositoriesController.js")
+}
+
+<div ng-controller="MarkedRepositoriesController">
+
+    <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4" ng-repeat="repository in markedRepositories">
+            <div class="card">
+                <img class="card-img-top" src="{{repository.Avatar}}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{repository.RepositoryName}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

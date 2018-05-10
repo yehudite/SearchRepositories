@@ -1,0 +1,33 @@
+﻿@{
+
+    @Scripts.Render("/js/controllers/SearchRepositoriesController.js")
+}
+
+<div ng-controller="SearchRepositoriesController">
+
+    <div class="jumbotron my-4">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Repository Name</label>
+            <input type="text" class="form-control" placeholder="Enter repository name" ng-model="repositoryName" />
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="search()">Search</button>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4" ng-repeat="repository in repositories">
+            <div class="card">
+                <img class="card-img-top" src="{{repository.owner.avatar_url}}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{repository.full_name}}</h4>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" ng-click="markRepository(repository)">
+                        <span class="glyphicon glyphicon-bookmark"></span> 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span ng-show="repositories.length == 0">No Data Found</span>
+
+</div>   
